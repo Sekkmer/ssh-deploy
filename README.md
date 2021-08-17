@@ -60,7 +60,7 @@ or use the latest version from a branch, eg: ssh-deploy@main
 
 ```
   - name: Deploy to Staging server
-    uses: easingthemes/ssh-deploy@main
+    uses: Sekkmer/ssh-deploy@main
     env:
       SSH_PRIVATE_KEY: ${{ secrets.SERVER_SSH_KEY }}
       ARGS: "-rltgoDzvO"
