@@ -5,16 +5,9 @@ inputs:
   SSH_PRIVATE_KEY: # Private Key
     description: "Private Key"
     required: true
-  REMOTE_HOST:
-    description: "Remote host"
+  SSH_CONFIG:
+    description: "SSH config file template"
     required: true
-  REMOTE_USER:
-    description: "Remote user"
-    required: true
-  REMOTE_PORT:
-    description: "Remote port"
-    required: false
-    default: "22"
   SOURCE:
     description: "Source directory"
     required: false
@@ -22,12 +15,12 @@ inputs:
   TARGET:
     description: "Target directory"
     required: false
-    default: "/home/REMOTE_USER/"
+    default: ""
   ARGS:
     description: "Arguments to pass to rsync"
     required: false
     default: "-rltgoDzvO"
-  EXCLUDE: 
+  EXCLUDE:
     description: "An array of folder to exclude"
     required: false
     default: ""

@@ -1,4 +1,11 @@
-const inputNames = ['REMOTE_HOST', 'REMOTE_USER', 'REMOTE_PORT', 'SSH_PRIVATE_KEY', 'DEPLOY_KEY_NAME', 'SOURCE', 'TARGET', 'ARGS', 'EXCLUDE'];
+const inputNames = [
+  'SSH_CONFIG',
+  'SSH_PRIVATE_KEY',
+  'SOURCE',
+  'TARGET',
+  'ARGS',
+  'EXCLUDE'
+];
 
 const inputs = {
   GITHUB_WORKSPACE: process.env.GITHUB_WORKSPACE

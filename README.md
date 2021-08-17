@@ -25,17 +25,17 @@ The keys should be generated using the PEM format. You can use this command
 ssh-keygen -m PEM -t rsa -b 4096
 ```
 
-##### 2. `REMOTE_HOST` [required]
+##### 2. `SSH_CONFIG` [required]
 
-eg: mydomain.com
+SSH config template file `{TARGET}` `{IDENTITY_FILE}` will be replaced
 
-##### 3. `REMOTE_USER` [required]
-
-eg: myusername
-
-##### 4. `REMOTE_PORT` (optional, default '22')
-
-eg: '59184'
+```
+Host {TARGET}
+    HostName example.com
+    User deployer
+    Port 22
+    IdentityFile {IDENTITY_FILE}
+```
 
 ##### 5. `ARGS` (optional, default '-rltgoDzvO')
 
@@ -45,7 +45,7 @@ For any initial/required rsync flags, eg: `-avzr --delete`
 
 The source directory, path relative to `$GITHUB_WORKSPACE` root, eg: `dist/`
 
-##### 7. `TARGET` (optional, default '/home/REMOTE_USER/')
+##### 7. `TARGET` (optional, default '')
 
 The target directory
 
@@ -65,9 +65,7 @@ or use the latest version from a branch, eg: ssh-deploy@main
       SSH_PRIVATE_KEY: ${{ secrets.SERVER_SSH_KEY }}
       ARGS: "-rltgoDzvO"
       SOURCE: "dist/"
-      REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
-      REMOTE_USER: ${{ secrets.REMOTE_USER }}
-      TARGET: ${{ secrets.REMOTE_TARGET }}
+      SSH_CONFIG: ${{ secrets.SSH_CONFIG }}
       EXCLUDE: "/dist/, /node_modules/"
 ```
 
